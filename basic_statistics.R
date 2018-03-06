@@ -76,3 +76,16 @@ cramers_v <- function(table) {
   
   return(v)
 }
+
+## Mood's median test
+median_test <- function(m) {
+  s = 0
+  for (i in 1:nrow(m)) {
+    for (j in 1:ncol(m)) {
+      e = sum(m[i,]) / 2
+      summand = ((m[i, j] - e)^2) / e
+      s = s + summand
+    }
+  }  
+  return(s)
+}
